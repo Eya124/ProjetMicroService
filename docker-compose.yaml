@@ -9,7 +9,7 @@ services:
             - "8888:8761"
         image: "eur"
      
-     #RESERVATION
+     #RESERVATION (Eya)
      reservation:
         build:
             context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Reservation
@@ -18,13 +18,31 @@ services:
         image: "reservation"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Centre
+     #Centre (Ibrahim)
      centre:
         build:
             context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Centre
         ports:
             - "8888:9091"
         image: "centre"
+        environment: 
+            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+     #Event (Firas)
+     event:
+        build:
+            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Event
+        ports:
+            - "8889:9091"
+        image: "event"
+        environment: 
+            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+     #Product (Amani)
+     product:
+        build:
+            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Product
+        ports:
+            - "9000:9091"
+        image: "product"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
         
