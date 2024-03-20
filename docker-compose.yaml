@@ -1,0 +1,30 @@
+#changer votre dossier vers le IdeaProjects.
+version: '3.8'
+services: 
+     #EUREKA CONTAINER
+     eurekaserver:
+        build: 
+            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\EurekaServer
+        ports:
+            - "8888:8761"
+        image: "eur"
+     
+     #RESERVATION
+     reservation:
+        build:
+            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Reservation
+        ports:
+            - "8887:8088"
+        image: "reservation"
+        environment: 
+            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+     #Centre
+     centre:
+        build:
+            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Centre
+        ports:
+            - "8888:9091"
+        image: "centre"
+        environment: 
+            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+        
