@@ -22,5 +22,7 @@ public class Reservation {
     private Long idEvent;
     private Long idUser;
     private Date dateReservation;
+    private String email;
+
 
 }
