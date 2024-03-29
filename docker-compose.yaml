@@ -1,48 +1,66 @@
 #changer votre dossier vers le IdeaProjects.
 version: '3.8'
-services: 
-     #EUREKA CONTAINER
-     eurekaserver:
-        build: 
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\EurekaServer
-        ports:
-            - "8888:8761"
-        image: "eur"
-     
-     #RESERVATION (Eya)
-     reservation:
-        build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Reservation
-        ports:
-            - "8887:8088"
-        image: "reservation"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Centre (Ibrahim)
-     centre:
-        build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Centre
-        ports:
-            - "8888:9091"
-        image: "centre"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Event (Firas)
-     event:
-        build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Event
-        ports:
-            - "8889:9091"
-        image: "event"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Product (Amani)
-     product:
-        build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Product
-        ports:
-            - "9000:9091"
-        image: "product"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-        
+services:
+  #EUREKA CONTAINER
+  eurekaserver:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\EurekaServer
+    ports:
+      - "8888:8761"
+    image: "eur"
+
+  #RESERVATION (Eya)
+  reservation:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Reservation
+    ports:
+      - "8887:8088"
+    image: "reservation"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #Centre (Ibrahim)
+  centre:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Centre
+    ports:
+      - "8888:9091"
+    image: "centre"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #Event (Firas)
+  event:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Event
+    ports:
+      - "8889:9091"
+    image: "event"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #Product (Amani)
+  product:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Product
+    ports:
+      - "9000:9091"
+    image: "product"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #User
+  user:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\User
+    ports:
+      - "9001:8050"
+    image: "user"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+
+  #Gateway
+  gateway:
+    build:
+      context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Gateway
+    ports:
+      - "9002:8989"
+    image: "gateway"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
