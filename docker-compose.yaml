@@ -32,7 +32,7 @@ services:
     build:
       context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Event
     ports:
-      - "8889:9091"
+      - "8081:9091"
     image: "event"
     environment:
       - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
