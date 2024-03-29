@@ -54,7 +54,7 @@ services:
     image: "user"
     environment:
       - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-
+  
   #Gateway
   gateway:
     build:
