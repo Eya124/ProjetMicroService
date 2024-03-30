@@ -12,6 +12,7 @@ import static org.springframework.security.config.http.SessionCreationPolicy.STA
 @EnableMethodSecurity(prePostEnabled = true)
 @RequiredArgsConstructor
 public class SecurityConfig {
+    private final JwtAuthConverter jwtAuthConverter;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -23,8 +24,8 @@ public class SecurityConfig {
 
         http
                 .oauth2ResourceServer()
-                .jwt();
-                //.jwtAuthenticationConverter(jwtAuthConverter);
+                .jwt()
+                .jwtAuthenticationConverter(jwtAuthConverter);
 
         http
                 .sessionManagement()
