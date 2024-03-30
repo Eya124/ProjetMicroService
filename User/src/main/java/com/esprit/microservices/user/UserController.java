@@ -1,6 +1,7 @@
 package com.esprit.microservices.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,11 +18,13 @@ public class UserController {
     }
 
     @GetMapping
+    @PreAuthorize("hasRole('client_user')")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("hasRole('client_admin')")
     public User getUserById(@PathVariable Integer id) {
         return userService.getUserById(id);
     }
