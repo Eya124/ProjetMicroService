@@ -12,6 +12,14 @@ public class ReservationController {
 
     @Autowired
     private ReservationService reservationService;
+    @GetMapping("/nbr")
+    public Integer numberEvent() {
+        return reservationService.numberEvent();
+    }
+    @PostMapping("/res")
+    public Reservation createReservation2(@RequestBody Reservation reservation) {
+        return reservationService.createReservation2(reservation);
+    }
 
     @PostMapping
     public Reservation createReservation(@RequestBody Reservation reservation) {

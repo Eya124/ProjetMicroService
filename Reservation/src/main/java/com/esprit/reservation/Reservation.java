@@ -13,18 +13,21 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@RequiredArgsConstructor
 public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long idCentre;
-    private String nom_event;
     private Long idEvent;
     private Long idUser;
     private Date dateReservation;
     private String email;
+    private String nomevent;
+    private String lieuevent;
+    private String datedebut;
+    private String datefin;
+    private String imageevent;
 
 
 

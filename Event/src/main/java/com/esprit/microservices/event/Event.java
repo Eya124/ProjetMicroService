@@ -2,37 +2,42 @@ package com.esprit.microservices.event;
 
 
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.io.Serializable;
 @Entity
-public class Event implements Serializable {
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+public class Event  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String nom_event;
-    private String lieu_event;
-    private String date_debut;
-    private String date_fin;
-    private String image_event;
+    private String nomevent;
+    private String lieuevent;
+    private String datedebut;
+    private String datefin;
+    private String imageevent;
 
     @Enumerated(EnumType.STRING)
     private Status isActive;
 
-    public Event() {
+    /*public Event() {
         // Default constructor
-    }
+    }*/
 
-    public Event(String nom_event, String lieu_event, String date_debut, String date_fin,
+    /*public Event(String nom_event, String lieu_event, String date_debut, String date_fin,
                  String image_event, Status isActive) {
-        this.nom_event = nom_event;
+        this.nomevent = nom_event;
         this.lieu_event = lieu_event;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.image_event = image_event;
         this.isActive = isActive;
-    }
+    }*/
 
-    public Integer getId() {
+   /* public Integer getId() {
         return id;
     }
 
@@ -41,11 +46,11 @@ public class Event implements Serializable {
     }
 
     public String getNom_event() {
-        return nom_event;
+        return nomevent;
     }
 
     public void setNom_event(String nom_event) {
-        this.nom_event = nom_event;
+        this.nomevent = nom_event;
     }
 
     public String getLieu_event() {
@@ -88,7 +93,7 @@ public class Event implements Serializable {
 
     public void setIsActive(Status isActive) {
         this.isActive = isActive;
-    }
+    }*/
 
     // Define an enum for isActive
     public enum Status {
