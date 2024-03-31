@@ -14,7 +14,7 @@ services:
         build:
             context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Reservation
         ports:
-            - "8887:8088"
+            - "8887:8085"
         image: "reservation"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
@@ -64,3 +64,4 @@ services:
         image: "gateway"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+        
