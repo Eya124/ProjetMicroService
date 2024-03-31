@@ -1,0 +1,17 @@
+create_reclamation:
+    path: /create
+    controller: 'App\Controller\ReclamationController::createReclamation'
+    methods: POST
+get_reclamation:
+    path: /reclamations
+    controller: 'App\Controller\ReclamationController::getAll'
+    methods: GET
+
+update_reclamation:
+    path: /update/{id}
+    controller: 'App\Controller\ReclamationController::updateReclamation'
+    methods: PUT
+delete_reclamation:
+    path: /delete/{id}
+    controller: 'App\Controller\ReclamationController::deleteReclamation'
+    methods: DELETE

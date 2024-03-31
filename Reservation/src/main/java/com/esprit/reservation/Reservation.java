@@ -1,10 +1,10 @@
 package com.esprit.reservation;
 
+import com.esprit.reservation.dto.Event;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+
+import jakarta.persistence.Entity;
+import lombok.*;
 
 import java.util.Date;
 
@@ -23,6 +23,13 @@ public class Reservation {
     private Long idUser;
     private Date dateReservation;
     private String email;
+    private String nomevent;
+    private String lieuevent;
+    private String datedebut;
+    private String datefin;
+    private String imageevent;
+
+
 
 
 }

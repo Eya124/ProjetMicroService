@@ -10,5 +10,6 @@ import java.util.Optional;
 @Repository
 public interface EventRepository extends JpaRepository<Event, Integer> {
     List<Event> findByIsActive(Event.Status isActive);
+    Event findByNomevent(String nom);
 
 }

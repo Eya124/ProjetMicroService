@@ -18,6 +18,10 @@ public class EventController {
     public EventController(EventService eventService) {
         this.eventService = eventService;
     }
+    @GetMapping("/nom/{nom}")
+    public Event getEventBynom(@PathVariable String nom) {
+        return eventService.EventByNom(nom);
+    }
 
     @GetMapping
     public List<Event> getAllEvents() {
@@ -30,10 +34,11 @@ public class EventController {
     }
 
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public ResponseEntity<Event> createEvent(@RequestBody Event event) {
-        Event createdEvent = eventService.createEvent(event);
-        return new ResponseEntity<>(createdEvent, HttpStatus.OK);
+    //@ResponseStatus(HttpStatus.CREATED)
+    public Event createEvent(@RequestBody Event event) {
+        return eventService.createEvent(event);
+        //Event createdEvent = eventService.createEvent(event);
+        //return new ResponseEntity<>(createdEvent, HttpStatus.OK);
     }
 
     @PutMapping("/{id}")

@@ -15,7 +15,9 @@ public class EventService {
     public EventService(EventRepository eventRepository) {
         this.eventRepository = eventRepository;
     }
-
+    public Event EventByNom(String nom) {
+        return eventRepository.findByNomevent(nom);
+    }
     public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
