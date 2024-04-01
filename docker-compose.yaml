@@ -8,7 +8,15 @@ services:
         ports:
             - "8888:8761"
         image: "eur"
-     
+        
+     #MYSQL
+     mysql-container:
+        image: mysql:latest
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: yes
+        ports:
+            - "3306:3306"
+          
      #RESERVATION (Eya)
      reservation:
         build:
@@ -23,7 +31,7 @@ services:
         build:
             context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Centre
         ports:
-            - "8888:9091"
+            - "9999:9092"
         image: "centre"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
@@ -32,7 +40,7 @@ services:
         build:
             context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Event
         ports:
-            - "8889:9091"
+            - "8889:8081"
         image: "event"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
@@ -64,4 +72,4 @@ services:
         image: "gateway"
         environment: 
             - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-        
+      

@@ -1,4 +1,4 @@
 FROM openjdk:17
 EXPOSE 8081
-ADD  target/Events-0.0.1-SNAPSHOT.jar Events-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java" , "-jar" , "Events-0.0.1-SNAPSHOT.jar" ]
+ADD  target/Event-0.0.1-SNAPSHOT.jar Event-0.0.1-SNAPSHOT.jar
+ENTRYPOINT ["java" , "-jar" , "Event-0.0.1-SNAPSHOT.jar" ]
