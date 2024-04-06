@@ -6,7 +6,6 @@ get_reclamation:
     path: /reclamations
     controller: 'App\Controller\ReclamationController::getAll'
     methods: GET
-
 update_reclamation:
     path: /update/{id}
     controller: 'App\Controller\ReclamationController::updateReclamation'

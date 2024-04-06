@@ -14,6 +14,14 @@ import java.util.Optional;
 public class EventController {
     private final EventService eventService;
 
+    /*@GetMapping("/nbr")
+    public Integer numberReservation() {
+        return eventService.numberEvent();
+    }*/
+    @GetMapping("/reservations/count/{idEvent}")
+    public Integer getReservationCountForEvent(@PathVariable Long idEvent) {
+        return eventService.numberReservationsByEvent(idEvent);
+    }
     @Autowired
     public EventController(EventService eventService) {
         this.eventService = eventService;

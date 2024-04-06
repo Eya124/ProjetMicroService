@@ -1,8 +1,8 @@
 export class User{
     idUser:number;
 
-    nom:String;
-    prenom:String;
+    nom:string;
+    prenom:string;
     telephone:number;
     age:number;
     desactiver:boolean;

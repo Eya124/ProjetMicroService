@@ -12,8 +12,8 @@ import { User } from 'src/app/models/User';
 export class FormreclamationComponent implements OnInit {
 
   user: User;
-  reclamationObject: String;
-  reclamationDescription: String;
+  reclamationObject: string;
+  reclamationDescription: string;
   constructor(private router: Router,private http: HttpClient ) {}
 
   ngOnInit(): void {

@@ -1,5 +1,7 @@
 package com.esprit.microservices.event;
 
+import com.esprit.microservices.event.dto.Reservation;
+import com.esprit.microservices.event.feign.EventInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +12,16 @@ import java.util.stream.Collectors;
 @Service
 public class EventService {
     private final EventRepository eventRepository;
+
+    @Autowired
+    private EventInterface eventInterface;
+    /*public Integer numberEvent() {
+        return eventInterface.getAllReservations().size();
+    }*/
+    public Integer numberReservationsByEvent(Long idEvent) {
+        List<Reservation> reservations = eventInterface.getReservationsByEvent(idEvent);
+        return reservations.size();
+    }
 
     @Autowired
     public EventService(EventRepository eventRepository) {
@@ -45,4 +57,7 @@ public class EventService {
     public List<Event> getEventsByStatus(Event.Status status) {
         return eventRepository.findByIsActive(status);
     }
+
+
+
 }

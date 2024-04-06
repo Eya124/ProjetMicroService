@@ -14,6 +14,7 @@ public class Event  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    private Long idReservation;
     private String nomevent;
     private String lieuevent;
     private String datedebut;

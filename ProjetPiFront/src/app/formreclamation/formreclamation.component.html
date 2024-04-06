@@ -67,19 +67,19 @@
 </head>
 <body>
     <div class="form-container">
-      <h1>Reclamation pour {{ user.nom }} {{ user.prenom }}</h1>
-  
+      <!--<h1>Reclamation pour {{ user.nom }} {{ user.prenom }}</h1>-->
+
       <form (submit)="submitForm($event)">
         <div>
           <label for="reclamationObject">Object reclamation:</label>
           <input type="text" id="reclamationObject" name="reclamationObject" required [(ngModel)]="reclamationObject">
         </div>
-  
+
         <div>
           <label for="description">Description:</label>
           <textarea id="description" name="description" required [(ngModel)]="reclamationDescription"></textarea>
         </div>
-  
+
         <button type="submit">Submit</button>
       </form>
     </div>

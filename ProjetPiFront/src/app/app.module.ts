@@ -48,6 +48,7 @@ import { ReservationArchivePageComponent } from './reservation-archive-page/rese
 import { FormreclamationComponent } from './formreclamation/formreclamation.component';
 import { AdminComponent } from './dashboard/dashboard-components/admin/admin.component';
 import { UserComponent } from './user/user.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
 
 
 
@@ -82,7 +83,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ModalReclamationComponent,
     ReservationArchivePageComponent,
     FormreclamationComponent,
-    UserComponent
+    UserComponent,
+    ReclamationComponent
   ],
   imports: [
     CommonModule,

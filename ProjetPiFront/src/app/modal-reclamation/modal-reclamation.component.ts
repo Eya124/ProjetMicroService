@@ -16,7 +16,7 @@ export class ModalReclamationComponent implements OnInit {
   claim: Reclamation;
   constructor(private http:HttpClient,private router:Router,) {  this.claim = history.state.claim;}
 
-  
+
   ngOnInit(): void {
   }
 
@@ -24,12 +24,12 @@ export class ModalReclamationComponent implements OnInit {
     this.claim.status = !this.claim.status;
     this.http.get(`http://localhost:9091/reclamation/setStatus/${this.claim.idReclamation}/${this.claim.status}`).subscribe(
       () => {
-        
+
         this.router.navigate(['/dashboard']);
       },
       (error) => {
         console.error('Failed to update reclamation status:', error);
       }
     )}
- 
+
 }
