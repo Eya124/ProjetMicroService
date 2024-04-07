@@ -4,7 +4,7 @@ services:
      #EUREKA CONTAINER
      eurekaserver:
         build: 
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\EurekaServer
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\EurekaServer
         ports:
             - "8888:8761"
         image: "eur"
@@ -20,7 +20,7 @@ services:
      #RESERVATION (Eya)
      reservation:
         build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Reservation
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Reservation
         ports:
             - "8887:8085"
         image: "reservation"
@@ -29,7 +29,7 @@ services:
      #Centre (Ibrahim)
      centre:
         build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Centre
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Centre
         ports:
             - "9999:9092"
         image: "centre"
@@ -38,7 +38,7 @@ services:
      #Event (Firas)
      event:
         build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Event
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Event
         ports:
             - "8889:8081"
         image: "event"
@@ -47,7 +47,7 @@ services:
      #Product (Amani)
      product:
         build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Product
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Product
         ports:
             - "9000:9091"
         image: "product"
@@ -56,7 +56,7 @@ services:
      #User
      user:
         build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\User
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\User
         ports:
             - "9001:8050"
         image: "user"
@@ -66,7 +66,7 @@ services:
      #Gateway
      gateway:
         build:
-            context: C:\Users\ibrah\IdeaProjects\ProjetMicroService\Gateway
+            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Gateway
         ports:
             - "9002:8989"
         image: "gateway"
