@@ -58,6 +58,18 @@ public class EventService {
         return eventRepository.findByIsActive(status);
     }
 
+    public void deleteReservationsByEvent(Long idEvent) {
+        // Récupérer les réservations associées à l'événement
+        List<Reservation> reservations = eventInterface.getReservationsByEvent(idEvent);
+
+        // Supprimer les réservations récupérées
+        for (Reservation reservation : reservations) {
+            // Utiliser l'interface Feign pour supprimer chaque réservation individuellement
+            eventInterface.deleteReservation(reservation.getId());
+        }
+
+        eventRepository.deleteById(Math.toIntExact(idEvent));
+    }
 
 
 }

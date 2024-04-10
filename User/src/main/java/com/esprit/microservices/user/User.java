@@ -18,6 +18,8 @@ public class User implements Serializable {
     private String email;
     private String password;
 
+    private Integer idReclamation;
+
     public User() {
         // Default constructor
     }

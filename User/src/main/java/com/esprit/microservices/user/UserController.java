@@ -1,6 +1,8 @@
 package com.esprit.microservices.user;
 
+import com.esprit.microservices.user.dto.Reclamation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,5 +44,10 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable Integer id) {
         userService.deleteUser(id);
+    }
+
+    @PostMapping("/reclamations/create")
+    public ResponseEntity<Reclamation> createReclamation(@RequestBody Reclamation reclamation) {
+        return userService.createReclamation(reclamation);
     }
 }

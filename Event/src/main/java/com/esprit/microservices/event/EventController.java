@@ -70,4 +70,10 @@ public class EventController {
             return Collections.emptyList();
         }
     }
+
+    @DeleteMapping("reservations/delete/{id}")
+    public ResponseEntity<String> deleteReservationsByEvent(@PathVariable Long id) {
+        eventService.deleteReservationsByEvent(id);
+        return ResponseEntity.ok("Les réservations associées à l'événement ont été supprimées avec succès.");
+    }
 }

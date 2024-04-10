@@ -11,10 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @FeignClient(name ="EVENTSERVICE")
-
 public interface ReservationInterface {
-
-
 
     @GetMapping("/events")
     public List<Event> getAllEvents();

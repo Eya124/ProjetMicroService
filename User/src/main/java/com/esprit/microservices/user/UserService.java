@@ -1,6 +1,10 @@
 package com.esprit.microservices.user;
 
+import com.esprit.microservices.user.dto.Reclamation;
+import com.esprit.microservices.user.feign.UserInterface;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -9,6 +13,15 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    /*@Autowired
+    private KafkaTemplate<String, Reclamation> kafkaTemplate;
+    */@Autowired
+    private UserInterface userInterface;
+    public ResponseEntity<Reclamation> createReclamation(Reclamation reclamation) {
+        return userInterface.createReclamation(reclamation);
+        //Reclamation event = new Reclamation(reclamation.getId(), "CREATED", reclamation.getUserId());
+        //kafkaTemplate.send("reclamation-events", event);
+    }
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -42,4 +55,6 @@ public class UserService {
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);
     }
+
+
 }
