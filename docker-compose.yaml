@@ -1,75 +1,96 @@
 #changer votre dossier vers le IdeaProjects.
 version: '3.8'
-services: 
-     #EUREKA CONTAINER
-     eurekaserver:
-        build: 
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\EurekaServer
-        ports:
-            - "8888:8761"
-        image: "eur"
-        
-     #MYSQL
-     mysql-container:
-        image: mysql:latest
-        environment:
-            MYSQL_ALLOW_EMPTY_PASSWORD: yes
-        ports:
-            - "3306:3306"
-          
-     #RESERVATION (Eya)
-     reservation:
-        build:
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Reservation
-        ports:
-            - "8887:8085"
-        image: "reservation"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Centre (Ibrahim)
-     centre:
-        build:
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Centre
-        ports:
-            - "9999:9092"
-        image: "centre"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Event (Firas)
-     event:
-        build:
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Event
-        ports:
-            - "8889:8081"
-        image: "event"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #Product (Amani)
-     product:
-        build:
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Product
-        ports:
-            - "9000:9091"
-        image: "product"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     #User
-     user:
-        build:
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\User
-        ports:
-            - "9001:8050"
-        image: "user"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-     
-     #Gateway
-     gateway:
-        build:
-            context: C:\Users\MSI\Desktop\2ALINFO02\ProjetMicroService\Gateway
-        ports:
-            - "9002:8989"
-        image: "gateway"
-        environment: 
-            - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
-      
+services:
+  #EUREKA CONTAINER
+  eurekaserver:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\EurekaServer
+    ports:
+      - "8888:8761"
+    image: "eur"
+
+  #MYSQL
+  mysql-container:
+    image: mysql:latest
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: yes
+    ports:
+      - "3306:3306"
+
+  #RESERVATION (Eya)
+  reservation:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\Reservation
+    ports:
+      - "8887:8085"
+    image: "reservation"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #Centre (Ibrahim)
+  centre:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\Centre
+    ports:
+      - "9999:9092"
+    image: "centre"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #Event (Firas)
+  event:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\Event
+    ports:
+      - "8889:8081"
+    image: "event"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #Product (Amani)
+  product:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\Product
+    ports:
+      - "9000:9091"
+    image: "product"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+  #User
+  user:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\User
+    ports:
+      - "9001:8050"
+    image: "user"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+
+  #Gateway
+  gateway:
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\Gateway
+    ports:
+      - "9002:8989"
+    image: "gateway"
+    environment:
+      - eureka.client.serviceUrl.defaultZone=http://eurekaserver:8761/eureka/
+
+  #PostgresSQL
+  postgres:
+    image: postgres:${POSTGRES_VERSION:-16}-alpine
+    environment:
+      POSTGRES_DB: ReclamationDB
+      # You should definitely change the password in production
+      POSTGRES_PASSWORD: root
+      POSTGRES_USER: postgres
+
+  #Reclamation
+  reclamation:
+    image: "reclamation"
+
+    build:
+      context: C:\Users\Lenovo\Desktop\Esprit\Microservice\ProjetMicroService\reclamation
+    environment:
+      DATABASE_URL: 'postgresql://postgres:root@projetmicroservice-postgres-1:5432/ReclamationDB'
+    ports:
+      - "9000:9000"
+    depends_on:
+      - postgres
